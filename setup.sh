@@ -15,7 +15,7 @@ sudo apt install --no-install-recommends \
 
 sudo apt install \
   gnome-shell-extension-prefs transmission-gtk rclone curl \
-  nodejs neovim git make shellcheck
+  python3-venv nodejs neovim git make shellcheck
 
 _tailscale () {
   if command -v tailscale; then
