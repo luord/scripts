@@ -74,13 +74,13 @@ _rclone () {
     mkdir -p ~/.config/rclone
     cp "$CONFIG_DIR/rclone.conf" ~/.config/rclone/rclone.conf
     rclone --filter "- .**" bisync \
-     ~/Música remote:Music --resync --remove-empty-dirs
+     remote:Music ~/Música --resync --remove-empty-dirs
     rclone --filter "- .**" bisync \
-     ~/Vídeos remote:Videos --resync --remove-empty-dirs
+     remote:Videos ~/Vídeos --resync --remove-empty-dirs
     rclone --filter "- .**" bisync \
-     ~/Imágenes remote:Pictures --resync --remove-empty-dirs
+     remote:Pictures ~/Imágenes --resync --remove-empty-dirs
     rclone --filter "- .**" bisync \
-     ~/Documentos remote:Documents --resync --remove-empty-dirs
+     remote:Documents ~/Documentos --resync --remove-empty-dirs
   fi
 }
 
