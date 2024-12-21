@@ -11,7 +11,7 @@ sudo apt update
 sudo apt dist-upgrade -y
 
 sudo apt install \
- gnome-music totem transmission-gtk \
+ amberol totem transmission-gtk \
  rclone curl \
  python3-venv nodejs neovim git make shellcheck
 
