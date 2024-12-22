@@ -13,7 +13,7 @@ sudo apt dist-upgrade -y
 sudo apt install \
  amberol totem transmission-gtk \
  rclone curl \
- python3-venv nodejs neovim git make shellcheck
+ nodejs neovim git make shellcheck
 
 sudo apt install --no-install-recommends \
  gdm3 gnome-session gnome-shell gnome-terminal
@@ -22,12 +22,24 @@ _tailscale () {
   if command -v tailscale; then
     printf "already installed\n"
   else
-    wget -O - https://tailscale.com/install.sh | sh
+    curl -fsSL https://tailscale.com/install.sh | sh
     sudo tailscale up
   fi
 }
 
 _tailscale
+
+_uv () {
+  if command -v uv; then
+    printf "already installed\n"
+  else
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+    echo 'eval "$(uvx --generate-shell-completion bash)"' >> ~/.bashrc
+  fi
+}
+
+_uv
 
 _nvim () {
   if [[ -d ~/.config/nvim/pack/github/start/copilot.vim ]]; then
