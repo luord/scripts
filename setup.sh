@@ -11,12 +11,12 @@ sudo apt update
 sudo apt dist-upgrade -y
 
 sudo apt install \
- amberol totem transmission-gtk \
+ amberol totem transmission-gtk fonts-noto-color-emoji \
  rclone curl \
  nodejs neovim git make shellcheck
 
 sudo apt install --no-install-recommends \
- gdm3 gnome-session gnome-shell gnome-terminal
+ gdm3 gnome-session gnome-shell gnome-terminal gnome-shell-extension-prefs
 
 _tailscale () {
   if command -v tailscale; then
@@ -129,6 +129,17 @@ _docker () {
 }
 
 _docker
+
+_tlp () {
+  if [[ $(hostnamectl chassis) == "desktop" ]]; then
+    printf "unneeded\n"
+  else
+    sudo apt install tlp
+    sudo tlp start
+  fi
+}
+
+_tlp
 
 printf "done!\n"
 
