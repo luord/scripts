@@ -88,8 +88,6 @@ _rclone () {
     rclone --filter "- .**" bisync \
      remote:Music ~/Música --resync --remove-empty-dirs
     rclone --filter "- .**" bisync \
-     remote:Videos ~/Vídeos --resync --remove-empty-dirs
-    rclone --filter "- .**" bisync \
      remote:Pictures ~/Imágenes --resync --remove-empty-dirs
     rclone --filter "- .**" bisync \
      remote:Documents ~/Documentos --resync --remove-empty-dirs
