@@ -41,6 +41,19 @@ _uv () {
 
 _uv
 
+_llm () {
+  if command -v llm; then
+    printf "already installed\n"
+  else
+    uv tool install llm
+    llm install llm-gemini
+    llm models default gemini-2.0-flash
+    llm keys set gemini --value $(cat $CONFIG_DIR/gemini.key)
+  fi
+}
+
+_llm
+
 _nvim () {
   if [[ -d ~/.config/nvim/pack/github/start/copilot.vim ]]; then
     printf "already set up\n"
